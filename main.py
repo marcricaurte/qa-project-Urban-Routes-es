@@ -10,9 +10,6 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 
 
-
-
-
 # no modificar
 def retrieve_phone_code(driver) -> str:
     """Este código devuelve un número de confirmación de teléfono y lo devuelve como un string.
@@ -208,7 +205,6 @@ class UrbanRoutesPage:
     def set_message_to_driver(self):
         self.get_message_to_driver_field().send_keys(data.message_for_driver)
 
-
     def get_blanket_and_handkerchief(self):
         return WebDriverWait(self.driver, 6).until(
             EC.element_to_be_clickable(self.blanket_and_handkerchief_switch)
@@ -216,7 +212,6 @@ class UrbanRoutesPage:
 
     def set_blanket_and_handkerchief_switch(self):
         self.get_blanket_and_handkerchief().click()
-
 
     def get_blanket_and_handkerchief_input(self):
         return WebDriverWait(self.driver, 6).until(
@@ -255,8 +250,6 @@ class UrbanRoutesPage:
         return WebDriverWait(self.driver, 10).until(
             EC.visibility_of_element_located(self.driver_name)
         )
-
-
 
 class TestUrbanRoutes:
     driver = None
@@ -340,6 +333,7 @@ class TestUrbanRoutes:
         self.test_add_ice_cream()
         routes_page = UrbanRoutesPage(self.driver)
         routes_page.click_on_request_taxi_button()
+        assert routes_page.get_counter_value(), "El modal del contador no se abrió correctamente"
 
     def test_trip_details_modal_after_countdown(self):
         self.test_request_taxi_button()
@@ -347,8 +341,6 @@ class TestUrbanRoutes:
         routes_page.wait_countdown_modal_close()
         driver_name = routes_page.get_driver_name().text
         assert driver_name != "", f"El nombre del conductor no debería estar vacío, resutado: '{driver_name}'"
-
-
 
     @classmethod
     def teardown_class(cls):

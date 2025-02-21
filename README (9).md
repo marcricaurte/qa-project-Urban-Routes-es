@@ -3,6 +3,9 @@
 ## Descripción del Proyecto
 Este proyecto implementa pruebas automatizadas para la aplicación Urban Routes, una plataforma de solicitud de taxis. Las pruebas incluyen la selección de origen y destino, la elección de una tarifa de confort, la introducción de un número de teléfono para confirmación por SMS, la configuración de un método de pago, el envío de un mensaje al conductor, la selección de opciones adicionales,la confirmación de la solicitud del taxi y por último la información del viaje ( nombre del conductor, placa del vehículo, y tiempo de espera).
 
+## Comando de ejecución: 
+~/Pycharmprojects/Projects_sprint8/qa-project-Urban-Routes-es
+
 
 ## 1. Tecnologías y Técnicas Utilizadas
 
